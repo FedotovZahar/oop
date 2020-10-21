@@ -1,0 +1,80 @@
+#include <iostream>
+#include <time.h>
+#include "work_of_array.h"
+#include <fstream>
+#include <string>
+#include <vector>
+
+using std::vector;
+
+using namespace std;
+
+using namespace work_of_array;
+
+//n - количество элементов массива
+//sum - сумма элементов массива
+
+int main()
+{
+    string name;
+    cin >> name;
+    int n;
+    int min,max;
+    int sum;
+
+
+    cin >> name;
+
+    cout<<"Print n: ";
+    cin>>n;
+
+    cout<<"min"<<endl;
+    cin>>min;
+
+    cout<<"max"<<endl;
+    cin>>max;
+
+    int*main_array = create_array(n,min,max);
+    srand(time(0));
+    main_array=create_array(n,min,max);
+
+    vector<float> main_array_vector;
+    main_array_vector = create_array_vector(n,min,max);
+    main_array_vector.reserve(n);
+
+    //без использования вектора
+    //
+    cout<<"Array: ";
+    print_array(main_array,n);
+
+    sum=summ_of_array(main_array,n);
+
+    print_summ(sum);
+
+    save_array (main_array,n,name);
+
+    write_file_array(main_array,name);
+
+    delete[] main_array;
+
+    //
+
+    cout<< endl;
+
+    // с использованием вектора
+    //
+    cout<<"Array: ";
+    print_array_vector(main_array_vector,n);
+
+    sum=summ_of_array_vector(main_array_vector,n);
+
+    print_summ_float(sum);
+
+    save_array_vector(main_array_vector,n,name);
+
+    write_file_array_vector(main_array_vector,name);
+
+    return 0;
+    //
+}
+
