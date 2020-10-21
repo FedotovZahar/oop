@@ -16,9 +16,9 @@ float** create_matrix (unsigned n)
 {
     cout << "input Matrix: "<< endl;
 
-    float ** mat = new float* [n];
+    float ** mat = new float* [n+1];
     for (unsigned i = 0; i < n; i++)
-        mat[i] = new float[n+1];
+        mat[i] = new float[n];
 
     mat[0][0]= 5;
     mat[0][1]= 3;
